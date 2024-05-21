@@ -2,31 +2,29 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Counter</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Counter</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <div class="container ">
-        <h4>Counter using HTML</h4>
-        <div class="container_count ">
-            <p class="para">Your Current Count is :</p>
-            <span id="count">0</span>
+    <div class="container">
+        <div class="div1">
+            <h1>Counter using HTML</h1>
         </div>
-
-        <hr />
-        <p class="error">Error : Can not go below 0</p>
-        <div class="btn_container ">
-            <button class="btn" id="decreament" onclick="minFn()">Decreament</button>
-            <button class="btn" id="increament" onclick="addFn()">Increament</button>
-            <button id="clearBtn" onclick="clearFn()" class="btn clear">Clear</button>
+        <div class="div2">
+            <p>Your Current Count is : <span id="counter">0</span></p>
+            <hr />
         </div>
-
+        <div class="error" id="errorMessage">Error : Cannot go below 0</div>
+        <div class="buttons">
+            <button onclick="increment()">Increment</button>
+            <button onclick="decrement()">Decrement</button>
+            <button onclick="clearCounter()" id="clearButton">Clear</button>
+        </div>
     </div>
-
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

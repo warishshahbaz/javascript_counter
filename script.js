@@ -1,32 +1,34 @@
 let count = 0;
+const counterElement = document.getElementById("counter");
+const clearButton = document.getElementById("clearButton");
+const errorMessage = document.getElementById("errorMessage");
 
-function addFn() {
-  count += 1;
-  document.getElementById("count").innerHTML = count;
-
-  clearToZero();
+function updateCounter() {
+  counterElement.textContent = count;
+  clearButton.style.display = count === 0 ? "none" : "block";
+  errorMessage.style.display = count < 0 ? "block" : "none";
 }
-function minFn() {
-  if (count > 0) {
-    count -= 1;
-    document.getElementById("count").innerHTML = count;
+
+function increment() {
+  count++;
+  updateCounter();
+}
+
+function decrement() {
+  if (count === 0) {
+    errorMessage.style.display = "block"; // Display error message if count is already 0
   } else {
-    document.getElementById("count").innerHTML = 0;
+    count--;
+    updateCounter();
+    if (count < 0) {
+      errorMessage.style.display = "block"; // Display error message if count goes below 0 after decrement
+    } else {
+      errorMessage.style.display = "none"; // Hide error message if count is greater than or equal to 0
+    }
   }
-
-  clearToZero();
 }
-function clearFn() {
-  document.getElementById("count").innerHTML = 0;
+
+function clearCounter() {
   count = 0;
-  clearToZero();
+  updateCounter();
 }
-
-function clearToZero() {
-  if (count < 1) {
-    document.getElementById("clearBtn").style.display = "none";
-  } else {
-    document.getElementById("clearBtn").style.display = "block";
-  }
-}
-clearToZero();
